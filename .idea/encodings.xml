@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/1f30e1c3-a54c-4d66-9491-9208c2d0fe6b/console.sql" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/bean/Student.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/note/N05_System.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac00_Test/RobotTest.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac00_Test/Tester.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac01_Basics/T14_StringFormat.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac02_Advance/T10_JUnit4.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac02_Advance/T13_Optional.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac02_Advance/T14_Serializable.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac13_Lambda/T02_FilterStrategy.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac13_Lambda/T06_Reference.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac16_Thread_Juc/T08_CommonUtil.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac16_Thread_Juc/T11_SynchronousQueue.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac16_Thread_Juc/T12_TreadPool.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac18_CQSY/jsp/index.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac18_CQSY/jsp/index_old.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac18_CQSY/jsp/分院基层动态.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac18_CQSY/jsp/高检院动态.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/utils/ClosePort.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/utils/Formatter.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/pac00_outPut/Bean_Persons.out" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/pac09_GOF/T13_ChainOfResponsibility.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/pac09_GOF/T15_Mediator.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/pac10_GOF_Practice/B_State.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/pac11_JDBC/testtt.sql" charset="UTF-8" />
+    <file url="PROJECT" charset="GBK" />
+  </component>
+</project>

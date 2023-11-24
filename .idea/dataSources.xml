@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="javatest@localhost" uuid="7dbbc826-e311-4ddb-a921-4177da5d9d43">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/javatest?serverTimezone=GMT</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="aliyun_centos7.6_mysql" uuid="6d26a400-45c6-4438-a256-70b6bc69b7b7">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://47.113.93.198:3306/mysql01_test</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="hrms@101.37.70.106" uuid="c867748a-0480-4bc4-8269-51e6d886bd16">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://101.37.70.106:3306/hrms</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="@192.168.127.131" uuid="1f30e1c3-a54c-4d66-9491-9208c2d0fe6b">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://192.168.127.131:3306</jdbc-url>
+    </data-source>
+  </component>
+</project>

@@ -1,0 +1,125 @@
+{
+  "deptId": 17,
+  "approveType": "1",
+  "state": 1,
+  "testTaskApproveSubDtos": [
+    {
+      "appreoveNumber": "work_1",
+      "testTaskApproveNodeDtos": [
+        {
+          "appreoveNumber": "work_1",
+          "nodeSeq": 1,
+          "nodeType": "1",
+          "userIds": [
+            159
+          ]
+        },
+        {
+          "appreoveNumber": "work_1",
+          "nodeSeq": 2,
+          "nodeType": "1",
+          "userIds": [
+            160
+          ]
+        }
+      ],
+      "testTaskUsercount": 1,
+      "workTime": 1
+    },
+    {
+      "appreoveNumber": "work_2",
+      "testTaskApproveNodeDtos": [
+        {
+          "appreoveNumber": "work_2",
+          "nodeSeq": 1,
+          "nodeType": "1",
+          "userIds": [
+            159,
+            160,
+            161
+          ]
+        },
+        {
+          "appreoveNumber": "work_2",
+          "nodeSeq": 2,
+          "nodeType": "2",
+          "userIds": [
+            159,
+            160
+          ]
+        }
+      ],
+      "testTaskUsercount": 2,
+      "workTime": 1
+    },
+    {
+      "appreoveNumber": "work_3",
+      "testTaskApproveNodeDtos": [
+        {
+          "appreoveNumber": "work_3",
+          "nodeSeq": 1,
+          "nodeType": "1",
+          "userIds": [
+            159
+          ]
+        },
+        {
+          "appreoveNumber": "work_3",
+          "nodeSeq": 2,
+          "nodeType": "1",
+          "userIds": [
+            159,
+            160
+          ]
+        }
+      ],
+      "testTaskUsercount": 3,
+      "workTime": 1
+    },
+    {
+      "appreoveNumber": "nowork_1",
+      "testTaskApproveNodeDtos": [
+        {
+          "appreoveNumber": "nowork_1",
+          "nodeSeq": 1,
+          "nodeType": "1",
+          "userIds": [
+            167
+          ]
+        }
+      ],
+      "testTaskUsercount": 1,
+      "workTime": 0
+    },
+    {
+      "appreoveNumber": "nowork_2",
+      "testTaskApproveNodeDtos": [
+        {
+          "appreoveNumber": "nowork_2",
+          "nodeSeq": 1,
+          "nodeType": "1",
+          "userIds": [
+            161
+          ]
+        }
+      ],
+      "testTaskUsercount": 2,
+      "workTime": 0
+    },
+    {
+      "appreoveNumber": "nowork_3",
+      "testTaskApproveNodeDtos": [
+        {
+          "appreoveNumber": "nowork_3",
+          "nodeSeq": 1,
+          "nodeType": "1",
+          "userIds": [
+            164
+          ]
+        }
+      ],
+      "testTaskUsercount": 3,
+      "workTime": 0
+    }
+  ]
+}

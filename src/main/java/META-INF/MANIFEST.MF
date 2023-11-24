@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: score.jar javassist.jar jdom.jar dom4j-2.1.1.jar commons-io-
+ 2.6.jar
+

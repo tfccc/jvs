@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/src/main/java/pac11_JDBC/Day1.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac11_JDBC/Day2.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac11_JDBC/Day2_BackupRestore.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac11_JDBC/Day2_Constraint.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac11_JDBC/Day2_DQL.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac11_JDBC/Day2_Paradigm.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac11_JDBC/Day2_Relation.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac11_JDBC/Day3.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac11_JDBC/Day3_DCL.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac11_JDBC/Day3_MTQuery.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac11_JDBC/Day3_MT_Practice.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac11_JDBC/Day3_Transaction.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac17_oracleStudy/t01_tablespace_user_authorization.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac17_oracleStudy/t02_table.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac17_oracleStudy/t03_crud.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac17_oracleStudy/t04_sequence.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac17_oracleStudy/t05_scott.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac17_oracleStudy/t06_groupQuery.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac17_oracleStudy/t07_MTQ.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac17_oracleStudy/t08_subQuery.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac17_oracleStudy/t09_pagingQuery.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac17_oracleStudy/t10_view.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac17_oracleStudy/t11_index.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac17_oracleStudy/t12_plsql.sql" dialect="Oracle" />
+    <file url="PROJECT" dialect="MySQL" />
+  </component>
+</project>

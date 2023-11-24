@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persons>
+
+	<person>
+		<name>TFC</name>
+		<age>18</age>
+	</person>
+
+	<person>
+		<name>KFC</name>
+		<age>28</age>
+	</person>
+
+	<person>
+		<name>AFC</name>
+		<age>38</age>
+	</person>
+
+</persons>
