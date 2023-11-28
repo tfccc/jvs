@@ -5,8 +5,17 @@
 create table student
 (
     id            int primary key auto_increment not null,
-    studentNumber varchar(20),
-    studentName   varchar(10)
+    student_number varchar(20),
+    student_name   varchar(10)
+) charset = utf8
+  engine = InnoDB
+  collate = utf8_general_ci;
+
+# 教师表
+create table teacher
+(
+    id          int primary key auto_increment not null,
+    teacher_name varchar(10)
 ) charset = utf8
   engine = InnoDB
   collate = utf8_general_ci;
@@ -15,9 +24,9 @@ create table student
 create table course
 (
     id         int primary key auto_increment not null,
-    courseName varchar(10),
-    teacherID  int,
-    constraint course_teacher_fk foreign key (teacherID)
+    course_name varchar(10),
+    teacher_ID  int,
+    constraint course_teacher_fk foreign key (teacher_ID)
         references teacher (id) on update cascade on delete cascade
 ) charset = utf8
   engine = InnoDB
@@ -28,21 +37,12 @@ create table courseSelection
 (
     id        int primary key auto_increment not null,
     score     int,
-    studentID int,
-    courseID  int,
-    constraint cs_student_fk foreign key (studentID)
+    student_ID int,
+    course_ID  int,
+    constraint cs_student_fk foreign key (student_ID)
         references student (id) on update cascade on delete cascade,
-    constraint cs_course_fk foreign key (courseID)
+    constraint cs_course_fk foreign key (course_ID)
         references course (id) on update cascade on delete cascade
-) charset = utf8
-  engine = InnoDB
-  collate = utf8_general_ci;
-
-# 教师表
-create table teacher
-(
-    id          int primary key auto_increment not null,
-    teacherName varchar(10)
 ) charset = utf8
   engine = InnoDB
   collate = utf8_general_ci;
@@ -105,20 +105,24 @@ values('数据结构', 1),
       ('大学英语读写译', 5),
       ('软件项目管理', 5),
       ('人机交互', 5),
-      ('面向对象程序设计', 5);
+      ('面向对象程序设计', 5),
+      ('C#编程', 5),
+      ('Go编程', 5),
+      ('安卓开发', 5),
+      ('IOS开发', 5);
 
-insert into course_selection (score, student_id, course_id)
+insert into courseSelection (score, student_id, course_id)
 values (95, 1, 10),
-       (80, 1, 15),
-       (55, 1, 7),
-       (70, 1, 5),
+       (90, 1, 15),
+       (97, 1, 7),
+       (90, 1, 5),
        (99, 1, 8),
 
-       (98, 2, 9),
-       (88, 2, 8),
-       (59, 2, 7),
-       (68, 2, 5),
-       (87, 2, 22),
+       (95, 2, 9),
+       (90, 2, 8),
+       (97, 2, 7),
+       (90, 2, 5),
+       (99, 2, 22),
 
        (68, 3, 23),
        (54, 3, 25),
