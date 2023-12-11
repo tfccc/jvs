@@ -11,8 +11,9 @@ import java.util.TimerTask;
 public class T23_Timer {
 
 	public static void main(String[] args) {
-		Timer timer =new Timer();
-		timer.schedule(new TaskTest(), 1000,500);
+		Timer timer =new Timer(true);
+		timer.schedule(new TaskTest(), 2000,500);
+
 	}
 
 }
@@ -21,6 +22,7 @@ class TaskTest extends TimerTask{
 	@Override
 	public void run() {
 		System.out.println("Hello World");
+		this.cancel();
 	}
 	
 }

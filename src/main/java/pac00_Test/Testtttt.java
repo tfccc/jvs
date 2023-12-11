@@ -1,9 +1,7 @@
 package pac00_Test;
 
+
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.Executors;
-import java.util.concurrent.LinkedBlockingDeque;
-import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -24,53 +22,42 @@ public class Testtttt {
 
 
     public static void main(String[] args) {
-        ThreadPoolExecutor pool = new ThreadPoolExecutor(
-                2,
-                2,
-                1,
-                TimeUnit.SECONDS,
-                new LinkedBlockingDeque<>(2),
-                Executors.defaultThreadFactory(),
-                new ThreadPoolExecutor.CallerRunsPolicy()
-        );
-
-        long am = 1000 * 5;
-        long sTime = System.currentTimeMillis();
-        Runnable r1 = () -> {
-            while (System.currentTimeMillis() - sTime <= am) {
-                mt.incrementAndGet();
+        new Thread(() -> {
+            for (; ; ) {
+                try {
+                    TimeUnit.MILLISECONDS.sleep(200);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                test();
             }
-            latch0.countDown();
-        };
-        for (int i = 1; i <= THREAD_NUM; i++) {
-            pool.execute(r1);
-        }
+        }).start();
+        new Thread(() -> {
+            for (; ; ) {
+                try {
+                    TimeUnit.MILLISECONDS.sleep(200);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                test();
+            }
+        }).start();
+
         try {
-            latch0.await();
+            TimeUnit.MILLISECONDS.sleep(1000 * 2);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-
-        Runnable r2= () -> {
-            while (System.currentTimeMillis() - sTime <= am) {
-                mt.incrementAndGet();
-            }
-            latch1.countDown();
-        };
-        for (int i = 1; i <= THREAD_NUM; i++) {
-            pool.execute(r2);
-        }
-
-        try {
-            latch1.await();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        System.out.println(mt.longValue());
-
-        pool.shutdown();
     }
+
+    static String lock = "1";
+
+    private static void test() {
+        synchronized (lock) {
+            System.out.println(lock);
+        }
+    }
+
 
 }
