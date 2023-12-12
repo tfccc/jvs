@@ -15,8 +15,9 @@
     <file url="file://$PROJECT_DIR$/src/main/java/pac13_Lambda/T02_FilterStrategy.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/pac13_Lambda/T06_Reference.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/pac16_Thread_Juc/T08_CommonUtil.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac16_Thread_Juc/T10_BlockingQueue.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/pac16_Thread_Juc/T11_SynchronousQueue.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/pac16_Thread_Juc/T12_TreadPool.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pac16_Thread_Juc/T12_ThreadPool.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/pac18_CQSY/jsp/index.jsp" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/pac18_CQSY/jsp/index_old.jsp" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/pac18_CQSY/jsp/分院基层动态.jsp" charset="UTF-8" />

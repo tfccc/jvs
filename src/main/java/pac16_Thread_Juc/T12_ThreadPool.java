@@ -11,29 +11,29 @@ import java.util.concurrent.*;
  * @project: Java_Study
  * @author: F.C.Tang
  * @date: 2020-09-22 20:11
- * @desc: �̳߳�
+ * @desc: ????
  *
- * (1)�̳߳ؼ���֪ʶ��
- *      1.���󷽷�------->���ִ����̳߳صķ���
- *      2.�ߴ����------->�̳߳ع�����߸�����(new ThreadPoolExecutor())
- *      3.���־ܾ�����:
- *          (1)AbortPolicy(��ֹ����,ΪĬ�ϲ���): ��������������쳣,��ִ��
- *          (2)CallerRunsPolicy(ί����ִ��)    : �����񷵻ظ�ί��ִ�е��߳�
- *          (3)DiscardPolicy(��������)         : ���ݺ�,������������������,ִ�������
- *          (4)DiscardPolicyOld(�����ɵĲ���)  : ���ݺ�,���ȶ������������(����),ִ�������
+ * (1)???????????
+ *      1.?????------->???????????????
+ *      2.??????------->???????????????(new ThreadPoolExecutor())
+ *      3.??????????:
+ *          (1)AbortPolicy(???????,???????): ???????????????,?????
+ *          (2)CallerRunsPolicy(????????)    : ?????????????��????
+ *          (3)DiscardPolicy(????????)         : ?????,??????????????????,????????
+ *          (4)DiscardPolicyOld(??????????)  : ?????,????????????????(????),????????
  *
- * (2)�ŵ�:
- *      1.������Դ����
- *      2.�����Ӧ�ٶȺ�����Ч��
- *      3.�������
+ * (2)???:
+ *      1.???????????
+ *      2.??????????????��??
+ *      3.???????
  *
- * (3)����߳�(maxPoolSize)��ζ��涨
- *      1.CPU�ܼ���: cpu�ĺ����� (Runtime.getRuntime().availableProcessors())
- *      2.IO�ܼ���: �жϳ�����io���Ĵ���߳���, ����Ϊ��������2��
+ * (3)??????(maxPoolSize)??��??��
+ *      1.CPU?????: cpu??????? (Runtime.getRuntime().availableProcessors())
+ *      2.IO?????: ?��??????io???????????, ?????????????2??
  *
  *
  **/
-public class T12_TreadPool {
+public class T12_ThreadPool {
 
     public static ExecutorService orderVerifyPool = new ThreadPoolExecutor(
             4,
@@ -46,7 +46,7 @@ public class T12_TreadPool {
     );
 
     /*************************************************************************
-     * �̻߳Ὺ��max���߳�, ����ɺ�ֻ�ᱣ��poolSize���߳�, ���ǻᴦ��waiting״̬
+     * ??????max?????, ???????????poolSize?????, ???????waiting??
      *************************************************************************/
     public static void main(String[] args) throws InterruptedException {
         List<Future<List<Student>>> futures = new ArrayList<>();
@@ -58,7 +58,7 @@ public class T12_TreadPool {
                 Random random = new Random();
 
                 int time = random.nextInt(3000) + 5000;
-                System.out.println(Thread.currentThread().getName() + " -- ˯�� -- " + time);
+                System.out.println(Thread.currentThread().getName() + " -- ??? -- " + time);
                 TimeUnit.MILLISECONDS.sleep(time);
 
                 List<Student> res = new ArrayList<>();
@@ -105,14 +105,14 @@ public class T12_TreadPool {
 
 
     /*****************************************************************
-     *                            ���󷽷�
+     *                            ?????
      *****************************************************************/
     @Test
-    @DisplayName("1.1���̵߳��̳߳�")
+    @DisplayName("1.1??????????")
     public void test1() throws InterruptedException {
         ExecutorService pool = Executors.newSingleThreadExecutor();
 
-        //����һ���߳�
+        //??????????
         for (int i = 1; i <= 10; i++) {
             int finalI = i;
             pool.execute(() -> {
@@ -124,11 +124,11 @@ public class T12_TreadPool {
     }
 
     @Test
-    @DisplayName("1.2�̶��������̳߳�")
+    @DisplayName("1.2?????????????")
     public void test2() throws InterruptedException {
         ExecutorService pool = Executors.newFixedThreadPool(5);
 
-        //ͬʱ���5���߳�
+        //?????5?????
         for (int i = 1; i <= 20; i++) {
             int finalI = i;
             pool.execute(() -> {
@@ -140,7 +140,7 @@ public class T12_TreadPool {
     }
 
     @Test
-    @DisplayName("1.3������(����)")
+    @DisplayName("1.3??????(????)")
     public void test3() throws InterruptedException {
         ExecutorService pool = Executors.newCachedThreadPool();
 
@@ -156,33 +156,34 @@ public class T12_TreadPool {
 
 
     /*****************************************************************
-     *                       �ߴ����+���־ܾ�����
+     *                       ??????+??????????
      *****************************************************************/
     @Test
     @DisplayName("")
     public void test4() throws InterruptedException {
-        // �Ƽ�ʹ��new ThreadPoolExecutor()�����̳߳�
-        ExecutorService pool = new ThreadPoolExecutor(
-                // 1.����״̬�¿���������
+        ThreadPoolExecutor pool = new ThreadPoolExecutor(
+                // 1.normal size
                 3,
-                // 2.��󿪷�����(��󲢷�)
+                // 2.max size
                 5,
-                // 3.�ȴ�ʱ��(�������е�)
+                // 3.keep-alive-time
                 1,
-                // 4.ʱ�䵥λ
+                // 4.keep-alive-time unit
                 TimeUnit.SECONDS,
-                // 5.�ȴ����е�����
+                // 5.task wait queue
                 new LinkedBlockingDeque<>(3),
-                // 6.�̳߳ع���
+                // 6.�̳߳�
                 Executors.defaultThreadFactory(),
-                // 7.�ܾ�����(�ﵽ������ִ��)
+                // 7.�ܾ�����
                 //new ThreadPoolExecutor.AbortPolicy()
                 //new ThreadPoolExecutor.CallerRunsPolicy()
                 //new ThreadPoolExecutor.DiscardPolicy()
                 new ThreadPoolExecutor.DiscardOldestPolicy()
         );
 
-        // �˴����ɳ���'LinkedBlockingDeque.capacity + maximumPoolSize'
+        pool.allowCoreThreadTimeOut(true);
+
+        // 'LinkedBlockingDeque.capacity + maximumPoolSize'
         for (int i = 1; i <= 20; i++) {
             int finalI = i;
             pool.execute(() -> {
