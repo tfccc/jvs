@@ -1,0 +1,63 @@
+gitlab:
+德勤邮箱+tf..49..
+
+禅道:
+tangchegncheng
+tangchegncheng123456
+
+前端:
+http://10.173.49.203:8000/dorbit/uat
+这个是前端的访问页面，某投资公司 admin 123456
+
+云枢demo:
+https://demo.internal.cloudpivot.cn/login
+账号：huangj
+密码：Authine@123456
+ 
+微创:
+franktanga
+YczL145&
+
+勤栈-部署:
+10.201.224.9
+cnitsadm
+Dtt12345678!
+Dtt12345678+
+/mnt/cnitsadm/dorbit-sit/server/bpm
+sudo sh start.sh
+
+勤公益-部署:
+10.201.224.4
+cnitsadm
+Dtt12345678+
+/home/cnitsadm/foundation/uat 
+/home/cnitsadm/foundation/sit
+/data/application/foundation/sit/web/dist/
+前端文件夹: \\CNPC2FPECP\Users\alexiwang\Desktop\share\DCharity
+
+
+勤公益路径: \\10.201.224.70\项目列表\D.Charity\3
+前端:
+http://10.173.49.227:8080/
+http://10.173.50.210:8080/#/activity/list
+http://10.173.50.210:8082/#/login
+http://10.173.50.210:8080 
+
+
+
+http://10.173.49.198:8000/dorbit/low-code
+http://10.173.86.242:8000/dorbit/low-code/
+http://10.173.49.85:8000/dorbit/low-code/
+http://10.173.49.231:8000/dorbit/sit/
+
+勤栈-档案租户:
+租户管理员archivist
+负责人arcadmin
+用户arcuser
+
+vpn:
+58b304^P
+
+DM:
+jdbc:dm://172.21.55.105:5237?schema=DORBIT_CLOUD_UAT
+SYSDBA / SYSDBA
