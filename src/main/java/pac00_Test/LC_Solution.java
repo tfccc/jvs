@@ -1,9 +1,9 @@
 package pac00_Test;
 
 import java.math.BigInteger;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
 /**
  * @project: Java_Study
@@ -15,7 +15,79 @@ public class LC_Solution {
 
 
     public static void main(String[] args) {
+        //int[] height = new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+        int[] height = new int[]{0, 0, 0, 0, 0, 0};
+        System.out.println(trap(height));
+    }
 
+
+    //接雨水--https://leetcode.cn/problems/trapping-rain-water/
+    private static int trap(int[] height) {
+        //找到最高点, 用最高点二分柱状图, 左侧顺序遍历, 右侧倒序遍历, 遇到墙则填充
+        System.out.println(Arrays.toString(height));
+        // 原面积
+        int preSize = Arrays.stream(height)
+                .reduce(Integer::sum)
+                .orElse(0);
+
+        // 找到最高点
+        int max = Arrays.stream(height).max().orElse(0);
+
+        // 从左到右, 获取第一个最大高度的索引
+        int maxIndex = 0;
+        for (int i = 0; i < height.length; i++) {
+            if (max == height[i]) {
+                maxIndex = i;
+                break;
+            }
+        }
+
+        // 左侧顺序遍历
+        for (int i = 0; i < maxIndex; i++) {
+            int crt = height[i];
+            // 第一个=0, 跳过
+            if ((i == 0) && height[0] == 0) {
+                continue;
+            }
+            // 从当前位置, 最高点遍历
+            for (int j = i + 1; j <= maxIndex; j++) {
+                int nxt = height[j];
+                // 遇到墙
+                if (crt <= nxt) {
+                    // 填充数组
+                    for (int x = i + 1; x < j; x++) {
+                        height[x] = crt;
+                    }
+                    // 指针移到墙的位置
+                    i = j - 1;
+                    break;
+                }
+            }
+        }
+
+        // 右侧倒序遍历
+        for (int i = height.length - 1; i > maxIndex; i--) {
+            int crt = height[i];
+            // 第一个=0, 跳过
+            if ((i == height.length - 1) && height[height.length - 1] == 0) {
+                continue;
+            }
+            // 从当前位置, 最高点遍历
+            for (int j = i - 1; j >= maxIndex; j--) {
+                int nxt = height[j];
+                // 遇到墙
+                if (crt <= nxt) {
+                    // 填充数组
+                    for (int x = i - 1; x > j; x--) {
+                        height[x] = crt;
+                    }
+                    // 指针移到墙的位置
+                    i = j + 1;
+                    break;
+                }
+            }
+        }
+        return (Arrays.stream(height).reduce(Integer::sum).orElse(0) - preSize);
     }
 
 
