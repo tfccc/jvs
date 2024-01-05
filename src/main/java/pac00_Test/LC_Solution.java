@@ -334,16 +334,23 @@ public class LC_Solution {
         // 结果数组
         ArrayList<String> res = new ArrayList<>();
 
+        // <数字, 阶乘值>
+        HashMap<Integer, Integer> factorialMap = new HashMap<>();
+        factorialMap.put(0, 1);
+
         // 构建一个n位的数组[1,2,3,4...n]
         ArrayList<Integer> list = new ArrayList<>();
+        int factorialTemp = 1;
         for (int i = 1; i <= n; i++) {
             list.add(i);
+            factorialTemp *= i;
+            factorialMap.put(i, factorialTemp);
         }
 
         // 循环n次, 找1~n, 每一位对应的数字
         for (int i = 1; i <= n; i++) {
             // 推导公式, 通过公式得到当前需要取的index
-            int index = (k - 1) / factorial((n - i)) % (n + 1 - i);
+            int index = (k - 1) / factorialMap.get(n - i) % (n + 1 - i);
             // index对应的数字, 加入结果数组
             res.add(list.get(index) + "");
             // 移除已用的数字
@@ -368,12 +375,9 @@ public class LC_Solution {
         return result;
     }
 
-
-    public static void main(String[] args) {
-        System.out.println(largestRectangleArea(new int[]{1,2,3}));
-    }
-
     //https://leetcode.cn/problems/largest-rectangle-in-histogram/
+
+    /**  左右指针解法（超时） **/
     public static int largestRectangleArea(int[] heights) {
         List<Integer> area = new ArrayList<>();
 
@@ -406,6 +410,24 @@ public class LC_Solution {
 
         return area.stream().max(Integer::compareTo).orElse(0);
     }
+
+    /** 单调栈解法 **/
+    public static int largestRectangleAreaStack(int[] heights) {
+        List<Integer> area = new ArrayList<>();
+
+        int res = 0;
+
+        for (int i = 0; i < heights.length; i++) {
+
+        }
+
+        return res;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(getPermutation(9, 3));
+    }
+
 }
 
 @SuppressWarnings("unused")

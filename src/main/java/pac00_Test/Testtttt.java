@@ -43,6 +43,7 @@ public class Testtttt {
         System.out.println("list2.class: " + list2.getClass());
     }
 
+
     static String lock = "1";
 
     private static void test() {
