@@ -40,8 +40,8 @@ public class Input {
      * @Desc 从键盘读取整数
      * @return 键盘输入的整数
      */
-    public static int getInteger() {
-        return Integer.parseInt(getStr());
+    public static String getInteger() {
+        return getStr();
     }
 
     /**

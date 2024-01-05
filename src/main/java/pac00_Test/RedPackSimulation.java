@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 public class RedPackSimulation {
 
     public static void main(String[] args) throws InterruptedException {
-        RedEnvelope redEnvelope = new RedEnvelope(10.00, 20);
+        RedEnvelope redEnvelope = new RedEnvelope(100.00, 20);
 
         for (int i = 1; i <= 30; i++) {
             new Thread(redEnvelope::grab, "P" + (i < 10 ? i + " " : i)).start();

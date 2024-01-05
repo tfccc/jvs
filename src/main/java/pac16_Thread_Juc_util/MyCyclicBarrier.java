@@ -1,10 +1,7 @@
 package pac16_Thread_Juc_util;
 
 import java.util.Random;
-import java.util.concurrent.BrokenBarrierException;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.CyclicBarrier;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 /**
  * @author Frank.Tang
@@ -26,22 +23,34 @@ public class MyCyclicBarrier {
      * @author Frank.Tang
      */
     private static void demo1() {
-        CyclicBarrier barrier = new CyclicBarrier(3);
+        CyclicBarrier barrier = new CyclicBarrier(
+                3,
+                () -> System.out.println("a batch of thread reach barrier...........")
+        );
 
         for (int i = 1; i <= 5; i++) {
             String threadName = "œﬂ≥Ã" + i;
+            int finalI = i;
             new Thread(() -> {
                 try {
-                    barrier.await();
+                    TimeUnit.SECONDS.sleep(finalI);
+                    barrier.await(8, TimeUnit.SECONDS);
+                    System.out.println(Thread.currentThread().getName() + " DONE");
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } catch (BrokenBarrierException e) {
-                    System.out.println("∆¡’œ±ªÕª∆∆");
+                    System.out.println("barrier is broken");
                     e.printStackTrace();
+                } catch (TimeoutException e) {
+                    System.out.println("barrier timeout");
+                    throw new RuntimeException(e);
                 }
             }, threadName).start();
         }
-        barrier.reset();
+
+
+        System.out.println("reach end");
+        //barrier.reset();
     }
 
 

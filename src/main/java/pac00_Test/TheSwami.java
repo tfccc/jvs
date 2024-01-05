@@ -1,6 +1,8 @@
 package pac00_Test;
 
-import utils.Formatter;
+import java.util.Objects;
+import java.util.Random;
+import java.util.regex.Pattern;
 import static utils.Input.getInteger;
 
 /**
@@ -10,8 +12,8 @@ import static utils.Input.getInteger;
  * @desc: 猜数游戏
  **/
 public class TheSwami {
-    private static int target = 60;
-    private static int input = -1;
+    private static String target = "";
+    private static String input = "";
     private static int round = 0;
 
     public static String name = "frankie";
@@ -26,16 +28,18 @@ public class TheSwami {
      * @return void
      */
     private static void startGame() {
-        Formatter.printMedially(" 猜数游戏 ");
-        Formatter.printMedially("[输入0~100内的整数]", ' ');
+        System.out.println("     猜数游戏     ");
+        System.out.println("[输入1~100内的整数]");
 
-        while (input != target) {
+        target = "" + (new Random().nextInt(100) + 1);
+
+        while (!target.equals(input)) {
             input = getInteger();
             checkInput(input);
         }
-        Formatter.printMedially("[输入次数:" + round
-                + " , 评级:" + getRank(round) + "]", ' ');
-        Formatter.printMedially(" 游戏结束 ");
+        System.out.println("[输入次数:" + round
+                + " , 评级:" + getRank(round) + "]");
+        System.out.println(" 游戏结束 ");
     }
 
     /**
@@ -43,14 +47,22 @@ public class TheSwami {
      * @param input 待检查的输入
      * @return void
      */
-    private static void checkInput(int input) {
-        round++;
-        if (inRange(input))
-            System.out.println((input == target) ?
-                    "猜对了!!!" : (input > target) ?
+    private static void checkInput(String input) {
+        Pattern pattern = Pattern.compile("\\d+");
+        if (!pattern.matcher(input).matches()) {
+            System.out.println("请输入正整数");
+            return;
+        }
+
+        if (inRange(Integer.parseInt(input))) {
+            System.out.println((Objects.equals(input, target)) ?
+                    "猜对了!!!" : (Integer.parseInt(input) > Integer.parseInt(target)) ?
                     "数字太大" : "数字太小");
-        else
-            System.out.println("请输入0~100的整数");
+        } else {
+
+            System.out.println("请输入1~100的整数");
+        }
+        round++;
     }
 
     /**
@@ -68,9 +80,9 @@ public class TheSwami {
      * @return 等级(S, A, B, C)
      */
     private static String getRank(int round) {
-        return (round == 1) ?
-                "S" : (round <= 4) ?
-                "A" : (round <= 6) ?
+        return (round <= 3) ?
+                "S" : (round <= 5) ?
+                "A" : (round <= 10) ?
                 "B" : "C";
     }
 }

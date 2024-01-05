@@ -1,8 +1,9 @@
 package pac00_Test;
 
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
@@ -22,33 +23,24 @@ public class Testtttt {
 
 
     public static void main(String[] args) {
-        new Thread(() -> {
-            for (; ; ) {
-                try {
-                    TimeUnit.MILLISECONDS.sleep(200);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                test();
-            }
-        }).start();
-        new Thread(() -> {
-            for (; ; ) {
-                try {
-                    TimeUnit.MILLISECONDS.sleep(200);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                test();
-            }
-        }).start();
+        Testtttt test = new Testtttt();
+        test.override();
+    }
 
-        try {
-            TimeUnit.MILLISECONDS.sleep(1000 * 2);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    public void override() {
 
+        List<Object> list1 = new ArrayList<>() {
+            @Override
+            public boolean add(Object o) {
+                return super.add(o);
+            }
+        };
+
+        List<Object> list2 = new ArrayList<>();
+
+        System.out.println("list1.class: " + list1.getClass());
+        System.out.println("list1.super: " + list1.getClass().getSuperclass());
+        System.out.println("list2.class: " + list2.getClass());
     }
 
     static String lock = "1";
