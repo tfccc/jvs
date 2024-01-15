@@ -4,8 +4,10 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.RoundingMode;
 import java.util.*;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 /**
  * @project: Java_Study
@@ -424,8 +426,43 @@ public class LC_Solution {
         return res;
     }
 
+    //https://leetcode.cn/problems/longest-increasing-subsequence/?envType=study-plan-v2&envId=dynamic-programming
+    public static int lengthOfLIS(int[] nums) {
+        int max = 1;
+        int half = nums.length / 2;
+
+        for (int i = 0; i < nums.length; i++) {
+            if (max >= half && i > half) {
+                break;
+            }
+
+            int crt = nums[i];
+            int len = 1;
+
+            for (int j = i + 1; j < nums.length; j++) {
+                int nxt = nums[j];
+                int crtTemp = crt;
+                if (crt < nxt && isLast(j + 1, nums, nxt)) {
+                    len++;
+                    crtTemp = nxt;
+                }
+            }
+            max = len > max ? len : max;
+        }
+        return max;
+    }
+
+    public static boolean isLast(int start, int[] nums, int target) {
+        for (int i = start; i < nums.length; i++) {
+            if (target == nums[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
-        System.out.println(getPermutation(9, 3));
+        System.out.println(lengthOfLIS(new int[]{10, 9, 2, 5, 3, 4}));
     }
 
 }
