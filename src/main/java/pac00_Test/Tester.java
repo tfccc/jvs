@@ -1,10 +1,11 @@
 package pac00_Test;
 
+import scala.collection.generic.BitOperations;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
-import java.util.Calendar;
-import java.util.Date;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -19,6 +20,18 @@ public class Tester {
     public static void main(String[] args) throws ParseException {
 //        date();
         localDateTime();
+    }
+
+    /**
+     * 某几个日期在同一周内 -- true
+     * 日期均不在同一周 ----- false
+     */
+    private static boolean datesInSameWeek(List<Date> dateList) {
+        Set<Long> weekDuplicateCheck = new HashSet<>();
+        for (Date date : dateList) {
+            weekDuplicateCheck.add((date.getTime() - 316800000) / 604800000);
+        }
+        return dateList.size() != weekDuplicateCheck.size();
     }
 
     private static void date() throws ParseException {
