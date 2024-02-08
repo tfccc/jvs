@@ -17,12 +17,12 @@ public class RobotTest {
 
     public static void main(String[] args) {
         for (int i = 1; i <= 10000; i++) {
-            clickLeft(robot, 2300, 500 + (i % 100), true);
+            clickLeft(robot, 1000, 200 + (i % 100), true);
 
-            Date date = new Date();
-            System.out.println(i + "\t" + date.toLocaleString());
+            int sleepTime = i % 5 + 60;
+            System.out.println(i + "\t" + new Date().toLocaleString() + " sleep-" + sleepTime);
 
-            sleep(60 * 2);
+            sleep(sleepTime);
         }
     }
 
@@ -50,6 +50,7 @@ public class RobotTest {
     @SuppressWarnings("all")
     private static void sleep(int seconds) {
         try {
+            seconds = (seconds <= 0) ? 1 : seconds;
             TimeUnit.SECONDS.sleep(seconds);
         } catch (InterruptedException e) {
             e.printStackTrace();

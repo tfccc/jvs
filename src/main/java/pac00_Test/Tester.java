@@ -4,7 +4,10 @@ import scala.collection.generic.BitOperations;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
@@ -18,8 +21,13 @@ public class Tester {
 
 
     public static void main(String[] args) throws ParseException {
-//        date();
-        localDateTime();
+        //date();
+        //localDateTime();
+        double f1 = 1.0005555F;
+        double f2 = 2.0001F;
+        double f3 = f1 + f2;
+
+        System.out.println(f3);
     }
 
     /**
