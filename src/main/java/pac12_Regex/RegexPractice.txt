@@ -22,7 +22,13 @@
     *  合法示例: aaa*aaa, abcPabc, @##&@##
     *  非法示例: abcabc, abc**abc, abc-adc
 
-5. 数字+字母两部分组成, 其中
+5. 匹配特定位置重复的字符串
+    1) 字符串由两部分组成, 第一部分=4个小写字母, 第二部分=三个相同的小写字母
+    2) 其中, 第二部分的字母=第一部分的第三个字母
+    *  合法示例: abcdccc, aaaaaaa, xyzkzzz, aabcbbb, ababaaa
+    *  非法示例: abcdaaa, aaaaeee, 1234333, aabc456
+
+6. 不定长的数字+字母组合
     1) 数字不以0开头
     2) 数字的个数1~5
     3) 字母大小写均可
@@ -31,7 +37,7 @@
     *  合法示例: 12345a, 99bbbAAA, 765ACC
     *  非法示例: 012K, 12345678PP, ZZZ, 88ss777
 
-6. 匹配邮箱
+7. 匹配邮箱
     1) 邮箱示例: frank_tang123@email.com.cn
     2) frank_tang123: 前缀, 由大小写字母、下划线、数字的一种或多种组成, 字符数≥3
     3) @email.com:    中段格式固定
@@ -39,7 +45,7 @@
     *  合法示例: [tang@email.com], [frank@email.com.hk], [TFC_frank@email.com.tw]
     *  非法示例: [aaa-123@email.com.cn], [frank@email.com.us], [984564.com]
 
-7. Windows文件夹路径
+8. Windows文件夹路径
     1) 盘符是从c开始的字母, 大小写均可
     2) 文件夹名不包含 \/:*?"<>| 共9个字符
     3) 路径分隔符为\
@@ -47,7 +53,7 @@
     *  合法示例: [C:\Users\frank\Desktop], [d:\Users\frank\Desktop\], [F:\MUSIC\JAY CHOU], [c:\]
     *  非法示例: [A:\Users], [C:\Users\\frank], [C:\Users<>s\dir?*], [C:/Users/frank]
 
-8. 整数的加/减法表达式
+9. 整数的加/减法表达式
     1) 结构a+b=c
     2) 加号/等号左右可以有一个或多个空格
     3) a,b,c代表整数，且首位不能为0(0本身除外)
@@ -56,21 +62,21 @@
     *  合法示例: [1+1=2], [2+   4  = 6], [6--9=15], [+0++0=+0], [-7 ++15=8], [-1+-2=-3]
     *  非法示例: [01 + 1=2], [++8++8=16], [5---2 = 3], [000+5 = 5], [6 + + 6 =12]
 
-9. 小驼峰
+10. 小驼峰
     1) 小写字母开头
     2) 以大写字母为隔断
     3) 仅包含大小写字母
     *  合法示例: testB, checkAdd, insertIntoDB, put, a
     *  非法示例: GroupBy, FIFO, Table
 
-10. 大驼峰
+11. 大驼峰
     1) 大写字母开头
     2) 以大写字母为隔断
     3) 仅包含大小写字母
     *  合法示例: GroupBy, FIFO, Table, D
     *  非法示例: testB, checkAdd, insertIntoDB, put, a
 
-11. 匹配java主函数
+12. java主函数
     1) public static void main(String[] args)
     2) 不带函数体, 即不带大括号
     3) 关键字及符号固定, 仅args(参数名)可变,
@@ -98,10 +104,11 @@
 2.  \D+
 3.  (\d[a-z][A-Z]){2,4}
 4.  (.{3})(.)\1
-5.  [1-9]\d{4}[a-zA-Z]+
-6.  \w{3,}@email\.com(\.cn|\.hk|\.tw)?
-7.  [C-Zc-z]:\\([^\\/:*?"<>|]+\\?)*
-8.  ([-+]?[1-9]\d*|[-+]?0) *[-+] *([-+]?[1-9]\d*|[-+]?0) *= *([-+]?[1-9]\d*|[-+]?0)
-9.  [a-z]+([A-Z][a-z]*)*
-10. [A-Z][a-z]*([A-Z][a-z]*)*
-11. \s*public\s+static\s+void\s+main\s*\(\s*String\s*\[\s*]\s*([a-zA-Z]+)\s*\)\s*
+5.  ([a-z])([a-z])([a-z])([a-z])\3\3\3
+6.  [1-9]\d{4}[a-zA-Z]+
+7.  \w{3,}@email\.com(\.cn|\.hk|\.tw)?
+8.  [C-Zc-z]:\\([^\\/:*?"<>|]+\\?)*
+9.  ([-+]?[1-9]\d*|[-+]?0) *[-+] *([-+]?[1-9]\d*|[-+]?0) *= *([-+]?[1-9]\d*|[-+]?0)
+10.  [a-z]+([A-Z][a-z]*)*
+11. [A-Z][a-z]*([A-Z][a-z]*)*
+12. \s*public\s+static\s+void\s+main\s*\(\s*String\s*\[\s*]\s*([a-zA-Z]+)\s*\)\s*
