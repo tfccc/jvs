@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
  *
  */
 public class T01_Regex {
-    public static void main(String[] args) {
+    public static void main(String[] asd) {
         //test1();
         //test2();
         //test3();
