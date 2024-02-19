@@ -13,20 +13,20 @@
 3. 重复n次的匹配
     1) 以[数字+小写字母+大写字母]3个字符为一组, 一共n组, 组合在一起, 一共3*n个字符
     2) 2 <= n <= 4
-    *  合法示例: 1aA9cD, 1pT4qQ5jK, 6gG7oO8eE9nN
-    *  非法示例: 1Qq2fF, 2uU, +aA*aA, 6gG7oO8eE9nN5hH
+    *  合法示例: [1aA9cD], [1pT4qQ5jK], [6gG7oO8eE9nN]
+    *  非法示例: [1Qq2fF], [2uU], [+aA*aA], [6gG7oO8eE9nN5hH]
 
 4. 匹配abcXabc类型的字符串
     1) 一共7个字符串
     2) 前三个字符串=后三个字符串, 中间一个字符串随意
-    *  合法示例: aaa*aaa, abcPabc, @##&@##
-    *  非法示例: abcabc, abc**abc, abc-adc
+    *  合法示例: [aaa*aaa], [abcPabc], [@##&@##]
+    *  非法示例: [abcabc], [abc**abc], [abc-adc]
 
 5. 匹配特定位置重复的字符串
     1) 字符串由两部分组成, 第一部分=任意4个小写字母, 第二部分=第一部分的第三个字母x3(重复三次)
     2) 由第一条规则约束, 字符串长度=7
-    *  合法示例: abcdccc, aaaaaaa, xyzkzzz, aabcbbb, ababaaa
-    *  非法示例: abcdaaa, aaaaeee, 1234333, aabc456
+    *  合法示例: [abcdccc], [aaaaaaa], [xyzkzzz], [aabcbbb], [ababaaa]
+    *  非法示例: [abcdaaa], [aaaaeee], [1234333], [aabc456]
 
 6. 不定长的数字+字母组合
     1) 字符串由数字+字母组成, 数字在前, 字母在后
@@ -34,8 +34,8 @@
     3) 数字的个数1~5
     4) 字母至少有一个
     5) 字母大小写均可
-    *  合法示例: 12345a, 99bbbAAA, 765ACC, 12K, 8EEEDDDFFFPPP
-    *  非法示例: 012K, 12345678PP, ZZZ, 88ss777, 996, 7
+    *  合法示例: [12345a], [99bbbAAA], [765ACC], [12K], [8EEEDDDFFFPPP]
+    *  非法示例: [012K], [12345678PP], [ZZZ], [88ss777], [996], [7]
 
 7. 匹配邮箱
     1) 邮箱示例: frank_tang123@email.com.cn
@@ -67,15 +67,15 @@
     1) 小写字母开头
     2) 以大写字母为隔断
     3) 仅包含大小写字母
-    *  合法示例: testB, checkAdd, insertIntoDB, put, a
-    *  非法示例: GroupBy, FIFO, Table
+    *  合法示例: [testB], [checkAdd], [insertIntoDB], [put], [a]
+    *  非法示例: [GroupBy], [FIFO], [Table]
 
 11. 大驼峰
     1) 大写字母开头
     2) 以大写字母为隔断
     3) 仅包含大小写字母
-    *  合法示例: GroupBy, FIFO, Table, D
-    *  非法示例: testB, checkAdd, insertIntoDB, put, a
+    *  合法示例: [GroupBy], [FIFO], [Table], [D]
+    *  非法示例: [testB], [checkAdd], [insertIntoDB], [put], [a]
 
 12. java主函数
     1) public static void main(String[] args)
@@ -129,7 +129,7 @@
 7.  \w{3,}@email\.com(\.cn|\.hk|\.tw)?
 8.  [C-Zc-z]:\\([^\\/:*?"<>|]+\\?)*
 9.  ([-+]?[1-9]\d*|[-+]?0) *[-+] *([-+]?[1-9]\d*|[-+]?0) *= *([-+]?[1-9]\d*|[-+]?0)
-10.  [a-z]+([A-Z][a-z]*)*
+10. [a-z]+([A-Z][a-z]*)*
 11. [A-Z][a-z]*([A-Z][a-z]*)*
 12. \s*public\s+static\s+void\s+main\s*\(\s*String\s*\[\s*]\s*([a-zA-Z]+)\s*\)\s*
 13. ([1-9][0-9]*\.\d{2}|0\.\d{2})
@@ -139,6 +139,3 @@
 
 
 
-  ^      ^      ^      ^      ^      ^      ^      ^      ^      ^      ^      ^
-<   >  <   >  <   >  <   >  <   >  <   >  <   >  <   >  <   >  <   >  <   >  <   >
-  v      v      v      v      v      v      v      v      v      v      v      v
