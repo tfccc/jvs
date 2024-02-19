@@ -30,18 +30,21 @@ sudo sh start.sh
 10.201.224.4
 cnitsadm
 Dtt12345678+
-/home/cnitsadm/foundation/uat 
+/home/cnitsadm/foundation/uat
 /home/cnitsadm/foundation/sit
 /data/application/foundation/sit/web/dist/
 前端文件夹: \\CNPC2FPECP\Users\alexiwang\Desktop\share\DCharity
+	    \\CNPC2FPECP\Users\alexiwang\Desktop\share\DCharity
+uat.mongo, 原url=https://iddc2.deloitte.com.cn/charity/paper_answer.html#/login?paperId={0}&channelUUID={1}&paperType=FEEDBACK
 
-
-勤公益路径: \\10.201.224.70\项目列表\D.Charity\3
+勤公益路径:
+\\10.201.224.70\项目列表\D.Charity\3
+\\CNPC2FPECP\Users\alexiwang\Desktop\share\DCharity
 前端:
 http://10.173.49.227:8080/
 http://10.173.50.210:8080/#/activity/list
 http://10.173.50.210:8082/#/login
-http://10.173.50.210:8080 
+http://10.173.50.210:8080
 
 
 
@@ -61,3 +64,14 @@ vpn:
 DM:
 jdbc:dm://172.21.55.105:5237?schema=DORBIT_CLOUD_UAT
 SYSDBA / SYSDBA
+
+
+CCP:
+http://10.201.170.52:8200/ccp/api/ccp4.git http://10.201.170.52:8200/ccp/api/ccp4.git
+sit	　	　	前端路径：/home/cnitsadm/ccp/sit/web/	　	https://iddcpetdev.deloitte.com.cn/ccp/sit
+ 	9000	jar包	后端路径：/home/cnitsadm/ccp/sit/server
+	　
+uat	　	　	前端路径：/home/cnitsadm/ccp/uat/web/	　	https://iddcpetdev.deloitte.com.cn/ccp/uat
+ 	9100	jar包	后端路径：/home/cnitsadm/ccp/uat/server	　
+
+

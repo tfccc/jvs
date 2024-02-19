@@ -2,7 +2,7 @@
     1) 格式: [年年年年-月月-日日 时时-分分-秒秒]
     2) 年月日时分秒的位数分别为: 4,2,2,2,2,2
     3) 无需保证日期在日历上的合法性
-    *  合法示例: [2024-01-30 12:10:00]
+    *  合法示例: [2024-01-30 12:10:00], [2024-12-30 00:16:30]
     *  非法示例: [2024-1-30 12:10:00], [2024-01-30 12:10], [2024-01-30   12:10:00]
 
 2. 匹配非数字
@@ -51,8 +51,8 @@
     3) 路径分隔符为\
     4) 路径结尾的\可选
     5) 根目录以[盘符+冒号+斜杠]格式表示, 见合法示例的最后一个
-    *  合法示例: [C:\Users\frank\Desktop], [d:\Users\frank\Desktop\], [F:\MUSIC\JAY CHOU], [c:\]
-    *  非法示例: [A:\Users], [C:\Users\\frank], [C:\Users<>s\dir?*], [C:/Users/frank]
+    *  合法示例: [C:\Users\frank\Desktop], [d:\Users\frank\Desktop\], [G:\movie\download_01], [F:\MUSIC\JAY CHOU], [c:\]
+    *  非法示例: [A:\Users], [C:\Users\\frank], [C:\Users<>s\dir?*], [C:/Users/frank], [c:], [c]
 
 9. 整数的加/减法表达式
     1) 结构a+b=c
@@ -115,7 +115,7 @@
 15.不以ing, er, or结尾的单词
     1) 单词由大小写字母组成, 长度不限
     2) 单词结尾不能是ing, er, or
-    *  合法示例: [ask], [stop], [CHECK], [abc], [Run], [exception], [a], [yinges]
+    *  合法示例: [ask], [stop], [CHECK], [abc], [Run], [exception], [a], [yinges], [doctors]
     *  非法示例: [doing], [doctor], [customer], [joker]
 
 
@@ -135,7 +135,6 @@
 13. ([1-9][0-9]*\.\d{2}|0\.\d{2})
 14. ((?=123).+|(?=abc).+)
 15. [a-zA-Z]+(?<!or)(?<!ing)(?<!er)
-
 
 
 
