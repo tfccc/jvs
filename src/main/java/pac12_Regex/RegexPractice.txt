@@ -38,12 +38,12 @@
     *  非法示例: [012K], [12345678PP], [ZZZ], [88ss777], [996], [7]
 
 7. 匹配邮箱
-    1) 邮箱示例: frank_tang123@email.com.cn
-    2) frank_tang123: 前缀, 由大小写字母、下划线、数字的一种或多种组成, 字符数≥3
+    1) 邮箱示例: john_peter123@email.com.cn
+    2) john_peter123: 前缀, 由大小写字母、下划线、数字的一种或多种组成, 字符数≥3
     3) @email.com:    中段格式固定
     4) .cn:           区域后缀, 可选. 有[cn/tw/hk]三种情况
-    *  合法示例: [tang@email.com], [frank@email.com.hk], [TFC_frank@email.com.tw]
-    *  非法示例: [tang@1024.com], [aaa-123@email.com.cn], [frank@email.com.us], [984564.com]
+    *  合法示例: [tom@email.com], [tom@email.com.hk], [TOM_tom@email.com.tw]
+    *  非法示例: [tom@1024.com], [aaa-123@email.com.cn], [tom@email.com.us], [984564.com]
 
 8. Windows文件夹路径
     1) 盘符是从c开始的字母, 大小写均可
@@ -51,8 +51,8 @@
     3) 路径分隔符为\
     4) 路径结尾的\可选
     5) 根目录以[盘符+冒号+斜杠]格式表示, 见合法示例的最后一个
-    *  合法示例: [C:\Users\frank\Desktop], [d:\Users\frank\Desktop\], [G:\movie\download_01], [F:\MUSIC\JAY CHOU], [c:\]
-    *  非法示例: [A:\Users], [C:\Users\\frank], [C:\Users<>s\dir?*], [C:/Users/frank], [c:], [c]
+    *  合法示例: [C:\Users\uname\Desktop], [d:\Users\uname\Desktop\], [G:\movie\download_01], [F:\MUSIC\JAY CHOU], [c:\]
+    *  非法示例: [A:\Users], [C:\Users\\uname], [C:\Users<>s\dir?*], [C:/Users/uname], [c:], [c]
 
 9. 整数的加/减法表达式
     1) 结构a+b=c
@@ -118,6 +118,33 @@
     *  合法示例: [ask], [stop], [CHECK], [abc], [Run], [exception], [a], [yinges], [doctors]
     *  非法示例: [doing], [doctor], [customer], [joker]
 
+16.xml标签匹配
+    1) 示例: <div front="bold" height="15px">content</div>
+    2) <div> ---- 标签开始符, 中间为标签名, 仅为大小写字母+数字+下划线. >左边可以有空格, <右边不能有空格
+    3) front ---- 标签属性, 标签之间需要用至少1个空格分隔, 等号左右可以有空格. 属性格式: xxx="abc", 属性名仅为大小写字母+数字+下划线
+    4) "bold" --- 属性的值, 任意字符, 可选, 但不能包含<>"这3个字符
+    5) content -- 标签内容, 任意字符, 可选, 但不能包含<>这2个字符
+    6) </div> --- 标签结束符, 名称和开始符保持一致. >左边可以有空格, <右边不能有空格
+    *  合法示例:
+         <div>content</div>
+         <div >  content  </div   >
+         <VER> </VER>
+         <div01> content </div01>
+         <div_02> content </div_02>
+         <div> this is, my content </div>
+         <tb A="123" B="第二个属性"> </tb>
+         <tb A  =    "c" B="d"> </tb>
+    *  非法示例:
+         <div no bracket /div>
+         <div> no slash <div>
+         <div> 1<=3 </div>
+         <div> diff tag </myDiv>
+         <tb A="123"B="456"> need space to split </tb>
+         <tbA="123" B="456"> need space to split </tb>
+         <tb A+b="123"> attr name not allowed </tb>
+         <tb A="12"3"> "not allowed </tb>
+         <tb A&$cc='123'>  </tb>
+
 
 解:
 1.  \d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}
@@ -135,6 +162,6 @@
 13. ([1-9][0-9]*\.\d{2}|0\.\d{2})
 14. ((?=123).+|(?=abc).+)
 15. [a-zA-Z]+(?<!or)(?<!ing)(?<!er)
-
+16. <(\w+)( +\w+ *= *"[^<">]*")* *>[^<>]*</\1 *>
 
 
