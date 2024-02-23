@@ -10,6 +10,12 @@ import java.lang.ref.WeakReference;
  * @author: TFC
  * @date: 2020-01-08 11:38
  * @note: Java引用机制测试
+ *
+ *        1.强引用: 内存不足的情况下，垃圾回收器也不会回收该对象
+ *        2.软引用: 当系统内存不足时+没有引用，垃圾回收器可能会回收该对象
+ *        3.弱引用: 不论内存是否充足+没有引用，都会回收该对象
+ *        4.虚引用: 随时可能被垃圾回收器回收
+ *
  **/
 public class T02_Reference {
     public static void main(String[] args) {
