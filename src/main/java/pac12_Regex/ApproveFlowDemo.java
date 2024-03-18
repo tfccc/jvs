@@ -4,6 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author Frank.Tang
@@ -38,38 +39,55 @@ public class ApproveFlowDemo {
 
 
     public static void main(String[] args) {
-        long sTime = System.currentTimeMillis();
-
-        //String flow = "&1,2,3& > |4,5| > &2,4& > &3&";
-        //String flow = "&1p&p > &2p&p > &3&";
-        //String flow = "&1p,2p&p > |1,2,3,4p|p > |4,5p|p > &2,3&";
-        String flow = "&1&";
-        //String flow = "&1p,2,3p&";
-        //String flow = "|1,2|";
-        //String flow = "&1p&p > &2p&p > &3p&p";
-
-        System.out.println("原审批流: " + flow);
-        System.out.println("原审批流进度: " + getRateOfProgress(flow) + "\n");
-
-        String res = approve(flow, 1L, true);
-        if (ALL_PASSED.equals(res)) {
-            throw new RuntimeException("审批流已全部通过");
-        } else if (REJECTED.equals(res)) {
-            throw new RuntimeException("审批流已驳回");
-        } else if (CAN_NOT_APPROVE.equals(res)) {
-            throw new RuntimeException("这个用户不能审批当前节点");
-        } else if (USER_APPROVED.equals(res)) {
-            throw new RuntimeException("这个用户已审批过当前节点");
+        for (int i = 1; i <= 10; i++) {
+            new Thread(() -> {
+                demo1();
+            }).start();
         }
+    }
 
-        System.out.println("审批结果: " + res);
-        System.out.println("审批流已通过: " + allPassed(res));
-        System.out.println("审批流已驳回: " + isRejected(res));
-        System.out.println("审批流进度: " + getRateOfProgress(res));
-        System.out.println();
+    private static void demo1() {
+        while (true) {
+            try {
+                TimeUnit.MILLISECONDS.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println(Thread.currentThread().getName());
 
-        long eTime = System.currentTimeMillis();
-        System.out.println("耗时: " + (eTime - sTime) + "ms");
+            long sTime = System.currentTimeMillis();
+
+            //String flow = "&1,2,3& > |4,5| > &2,4& > &3&";
+            //String flow = "&1p&p > &2p&p > &3&";
+            //String flow = "&1p,2p&p > |1,2,3,4p|p > |4,5p|p > &2,3&";
+            String flow = "&1&";
+            //String flow = "&1p,2,3p&";
+            //String flow = "|1,2|";
+            //String flow = "&1p&p > &2p&p > &3p&p";
+
+            System.out.println("原审批流: " + flow);
+            System.out.println("原审批流进度: " + getRateOfProgress(flow) + "\n");
+
+            String res = approve(flow, 1L, true);
+            if (ALL_PASSED.equals(res)) {
+                throw new RuntimeException("审批流已全部通过");
+            } else if (REJECTED.equals(res)) {
+                throw new RuntimeException("审批流已驳回");
+            } else if (CAN_NOT_APPROVE.equals(res)) {
+                throw new RuntimeException("这个用户不能审批当前节点");
+            } else if (USER_APPROVED.equals(res)) {
+                throw new RuntimeException("这个用户已审批过当前节点");
+            }
+
+            System.out.println("审批结果: " + res);
+            System.out.println("审批流已通过: " + allPassed(res));
+            System.out.println("审批流已驳回: " + isRejected(res));
+            System.out.println("审批流进度: " + getRateOfProgress(res));
+            System.out.println();
+
+            long eTime = System.currentTimeMillis();
+            System.out.println("耗时: " + (eTime - sTime) + "ms");
+        }
     }
 
 

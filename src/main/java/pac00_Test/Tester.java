@@ -1,14 +1,12 @@
 package pac00_Test;
 
-import scala.collection.generic.BitOperations;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
 import java.util.*;
+import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -21,13 +19,25 @@ public class Tester {
 
 
     public static void main(String[] args) throws ParseException {
-        //date();
-        //localDateTime();
-        double f1 = 1.0005555F;
-        double f2 = 2.0001F;
-        double f3 = f1 + f2;
-
-        System.out.println(f3);
+        ThreadPoolExecutor pool = new ThreadPoolExecutor(
+                // 1.normal size
+                3,
+                // 2.max size
+                5,
+                // 3.keep-alive-time
+                10,
+                // 4.keep-alive-time unit
+                TimeUnit.SECONDS,
+                // 5.task wait queue
+                new LinkedBlockingDeque<>(1),
+                // 6.Ïß³Ì³Ø
+                Executors.defaultThreadFactory(),
+                // 7.¾Ü¾ø²ßÂÔ
+                //new ThreadPoolExecutor.AbortPolicy()
+                //new ThreadPoolExecutor.CallerRunsPolicy()
+                //new ThreadPoolExecutor.DiscardPolicy()
+                new ThreadPoolExecutor.DiscardOldestPolicy()
+        );
     }
 
     /**
