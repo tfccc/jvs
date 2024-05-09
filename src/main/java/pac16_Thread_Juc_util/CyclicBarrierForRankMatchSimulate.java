@@ -20,16 +20,14 @@ public class CyclicBarrierForRankMatchSimulate {
 
     public static void main(String[] args) {
 
-        // 100¸öÍæ¼Ò
-        for (int i = 1; i <= 45; i++) {
+        // Íæ¼Ò
+        for (int i = 1; i <= 42; i++) {
             int finalI = i;
             new Thread(() -> {
                 String name = Thread.currentThread().getName();
                 try {
                     TimeUnit.SECONDS.sleep(finalI % 3 + 1);
-
-                    BARRIER.await(5, TimeUnit.SECONDS, name);
-
+                    int await = BARRIER.await(5, TimeUnit.SECONDS, name);
                 } catch (InterruptedException e) {
                     System.out.println(name + " interrupted");
                     throw new RuntimeException(e);

@@ -15,8 +15,19 @@ public class MySemaphore {
 
 
     public static void main(String[] args) {
-        parkingLotDemo1();
+        //parkingLotDemo1();
         //parkingLotDemo2();
+
+        try {
+            System.out.println("try");
+            System.exit(1);
+            Runtime.getRuntime().exit(1);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("catch");
+        } finally {
+            System.out.println("finally");
+        }
     }
 
 

@@ -58,11 +58,10 @@ public class TheSwami {
             System.out.println((Objects.equals(input, target)) ?
                     "猜对了!!!" : (Integer.parseInt(input) > Integer.parseInt(target)) ?
                     "数字太大" : "数字太小");
+            round++;
         } else {
-
             System.out.println("请输入1~100的整数");
         }
-        round++;
     }
 
     /**
@@ -80,8 +79,8 @@ public class TheSwami {
      * @return 等级(S, A, B, C)
      */
     private static String getRank(int round) {
-        return (round <= 3) ?
-                "S" : (round <= 5) ?
+        return (round <= 5) ?
+                "S" : (round <= 7) ?
                 "A" : (round <= 10) ?
                 "B" : "C";
     }

@@ -26,5 +26,7 @@ public class T06_ConstantPool {
 
 		System.out.println(s3 == s4.toString());
 
+		System.out.println(s1 == s4.toString());
+
     }
 }
